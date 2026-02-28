@@ -11,33 +11,37 @@ This repository is a small learning project that implements a **Weather MCP serv
 
 ### Tech Stack
 
-- Python
-- `fastmcp` (`mcp.server.fastmcp.FastMCP`)
+- Python (>=3.12)
+- `uv` (package manager)
+- `mcp[cli]` (MCP SDK)
 - `httpx`
 - `python-dotenv`
 - AccuWeather API
 
 ### Setup & Installation
 
-1. **Clone the repo**
+1. **Install uv** (if not already installed)
+
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+   Or see [uv installation guide](https://github.com/astral-sh/uv#installation) for other methods.
+
+2. **Clone the repo**
 
    ```bash
    git clone <this-repo-url>
    cd build-mcp
    ```
 
-2. **Create a virtualenv (optional but recommended)**
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   ```
-
 3. **Install dependencies**
 
    ```bash
-   pip install fastmcp httpx python-dotenv
+   uv sync
    ```
+
+   This will create a virtual environment and install all dependencies from `pyproject.toml`.
 
 4. **Set the AccuWeather API key**
 
@@ -54,6 +58,13 @@ This repository is a small learning project that implements a **Weather MCP serv
 Run:
 
 ```bash
+uv run python main.py
+```
+
+Or if you want to activate the virtual environment first:
+
+```bash
+source .venv/bin/activate
 python main.py
 ```
 
